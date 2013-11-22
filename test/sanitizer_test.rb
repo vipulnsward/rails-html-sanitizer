@@ -285,9 +285,7 @@ class SanitizersTest < Minitest::Test
   end
 
   def test_should_not_fall_for_xss_image_hack_pending
-    skip "Pending."
-
-    # Actual: "<img>alert(\"XSS\")\"&gt;"
+    # Actual: "<img>\"&gt;"
     assert_sanitized %(<IMG """><SCRIPT>alert("XSS")</SCRIPT>">), "<img>"
   end
 
